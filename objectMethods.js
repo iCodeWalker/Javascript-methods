@@ -192,3 +192,34 @@ const a = name1.getName();
 console.log(a);
 
 // A global function named Object is avialable in JS.
+
+// -------------Inheritance ---------------
+
+function Employee(name) {
+  this.name = name;
+}
+
+Employee.prototype.getName = function () {
+  return this.name;
+};
+
+var emp1 = new Employee("Vaibhav");
+
+emp1.getName();
+
+function Manager(name, dept) {
+  this.name = name;
+  this.dept = dept;
+}
+
+Manager.prototype.getDept = function () {
+  return this.dept;
+};
+
+var mgr = new Manager("Vinni", "IT");
+
+mgr.getDept();
+
+mgr.__proto__.__proto__ = Employee.prototype;
+
+mgr.getName();
